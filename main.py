@@ -19,7 +19,6 @@ origins = [
     "https://localhost.tiangolo.com",
     "http://localhost", 
     "http://localhost:8080",
-    "https://edsar-cajero-app.herokuapp.com"
 ]
 
 api.add_middleware(
