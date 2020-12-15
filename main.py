@@ -15,8 +15,11 @@ api = FastAPI() # Define la creación de la API REST
 
 # Políticas CORS para permitir el acceso de las peticiones desde la capa de presentación
 origins = [
-    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
-    "http://localhost", "http://localhost:8080",
+    "http://localhost.tiangolo.com", 
+    "https://localhost.tiangolo.com",
+    "http://localhost", 
+    "http://localhost:8080",
+    "https://edsar-cajero-app.herokuapp.com"
 ]
 
 api.add_middleware(
