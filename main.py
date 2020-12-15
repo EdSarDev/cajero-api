@@ -1,18 +1,28 @@
 from db.user_db import UserInDB
 from db.user_db import update_user, get_user
-
 from db.transaction_db import TransactionInDB
 from db.transaction_db import save_transaction
-
 from models.user_models import UserIn, UserOut
-
 from models.transaction_models import TransactionIn, TransactionOut
 
 import datetime
 from fastapi import FastAPI
 from fastapi import HTTPException
 
+from fastapi.middleware.cors import CORSMiddleware
+
 api = FastAPI() # Define la creación de la API REST
+
+# Políticas CORS para permitir el acceso de las peticiones desde la capa de presentación
+origins = [
+    "http://localhost.tiangolo.com", "https://localhost.tiangolo.com",
+    "http://localhost", "http://localhost:8080",
+]
+
+api.add_middleware(
+    CORSMiddleware, allow_origins=origins,
+    allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
+)
 
 # Funcionalidad auth_user (función de servicio web)
 @api.post("/user/auth/") # Este decorador define la operación HTTP "POST", así como la URL
